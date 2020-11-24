@@ -1,0 +1,481 @@
+{\rtf1\ansi\ansicpg936\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset134 PingFangSC-Regular;\f1\fswiss\fcharset0 Helvetica;\f2\fnil\fcharset136 PingFangTC-Regular;
+\f3\fnil\fcharset134 PingFangSC-Semibold;\f4\fswiss\fcharset0 Arial-BoldMT;\f5\fswiss\fcharset0 ArialMT;
+\f6\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red251\green2\blue7;\red0\green0\blue0;\red251\green2\blue7;
+\red0\green0\blue255;\red255\green255\blue255;\red60\green60\blue60;\red251\green0\blue7;\red0\green0\blue0;
+}
+{\*\expandedcolortbl;;\cssrgb\c100000\c14913\c0;\cssrgb\c0\c0\c0;\cssrgb\c100000\c14913\c0;
+\cssrgb\c0\c0\c100000;\cssrgb\c100000\c100000\c100000;\cssrgb\c30196\c30196\c30196;\cssrgb\c100000\c0\c0;\csgray\c0;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25020\viewh7760\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 \'bf\'d5\'d6\'b5\'ca\'c7\'ce\'de\'d0\'a7\'b5\'c4\'a3\'ac\'ce\'b4\'d6\'b8\'b6\'a8\'b5\'c4\'a3\'ac\'ce\'b4\'d6\'aa\'b5\'c4\'bb\'f2\'b2\'bb\'bf\'c9\'d4\'a4\'d6\'aa\'b5\'c4\'d6\'b5\'a1\'a3\'bf\'d5\'d6\'b5\'b2\'bb\'ca\'c7\'bf\'d5\'b8\'f1\'bb\'f2\'d5\'df
+\f1 0\
+
+\f0 \'b0\'fc\'ba\'ac\'bf\'d5\'d6\'b5\'b5\'c4\'ca\'fd\'d1\'a7\'b1\'ed\'b4\'ef\'ca\'bd\'b5\'c4\'d6\'b5\'b6\'bc\'ce\'aa\'bf\'d5\'d6\'b5
+\f1 \
+\
+--
+\f0 \'c2\'cb\'bf\'d5\'ba\'af\'ca\'fd\'bd\'f8\'d0\'d0\'d0\'de\'d5\'fd
+\f1 \
+	--nvl(comm, 0) 
+\f0 \'b5\'b1
+\f1 comm
+\f0 \'c1\'d0\'b5\'c4\'d6\'b5\'ca\'c7\'bf\'d5\'a3\'ac\'b7\'b5\'bb\'d8
+\f1 0\
+	 select ename, sal, sal*12+nvl(comm,0) 
+\f0 \'c4\'ea\'ca\'d5\'c8\'eb
+\f1  from emp;\
+\
+SQL> select * from emp where comm is null;\
+\
+SQL> select distinct deptno from emp;\
+\
+    DEPTNO\
+----------\
+	30\
+	20\
+	10\
+\
+
+\f0 \'b2\'e9\'d1\'af\'b5\'b1\'c7\'b0\'cf\'b5\'cd\'b3\'ca\'b1\'bc\'e4\'a3\'ba
+\f1 \
+SQL> select sysdate from dual;\
+\
+SYSDATE\
+---------\
+26-JUL-20\
+\
+SQL> select * from v$nls_parameters;\
+\
+PARAMETER							 VALUE\
+---------------------------------------------------------------- ----------------------------------------------------------------\
+NLS_LANGUAGE							 AMERICAN\
+NLS_TERRITORY							 AMERICA\
+NLS_CURRENCY							 $\
+NLS_ISO_CURRENCY						 AMERICA\
+NLS_NUMERIC_CHARACTERS						 .,\
+NLS_CALENDAR							 GREGORIAN\
+NLS_DATE_FORMAT 						 DD-MON-RR\
+NLS_DATE_LANGUAGE						 AMERICAN\
+NLS_CHARACTERSET						 AL32UTF8\
+NLS_SORT							 BINARY\
+NLS_TIME_FORMAT 						 HH.MI.SSXFF AM\
+NLS_TIMESTAMP_FORMAT				 DD-MON-RR HH.MI.SSXFF AM\
+NLS_TIME_TZ_FORMAT					 HH.MI.SSXFF AM TZR\
+NLS_TIMESTAMP_TZ_FORMAT 			 DD-MON-RR HH.MI.SSXFF AM TZR\
+NLS_DUAL_CURRENCY					 $\
+NLS_NCHAR_CHARACTERSET			 AL16UTF16\
+NLS_COMP							 BINARY\
+NLS_LENGTH_SEMANTICS				 BYTE\
+NLS_NCHAR_CONV_EXCP				 FALSE\
+\
+SQL> alter session set NLS_DATE_FORMAT='yyyy-mm-dd\'92;\
+\
+SQL> select * from emp where ename like '%M%';\
+\
+ EMPNO ENAME	  JOB		   MGR HIREDATE 	 SAL	   COMM     DEPTNO\
+------ ---------- --------- ---------- ---------- ---------- ---------- ----------\
+  7369 SMITH	  CLERK 	  7902 1980-12-17	 800			20\
+  7654 MARTIN	  SALESMAN	  7698 1981-09-28	1250	   1400 	30\
+  7876 ADAMS	  CLERK 	  7788 1987-05-23	1100			20\
+  7900 JAMES	  CLERK 	  7698 1981-12-03	 950			30\
+  7934 MILLER	  CLERK 	  7782 1982-01-23	1300			10\
+\
+\'91\'92
+\f0 \'b5\'a5\'d2\'fd\'ba\'c5\'d6\'d0\'b5\'c4\'d7\'d6\'b7\'fb\'c7\'f8\'b7\'d6\'b4\'f3\'d0\'a1\'d0\'b4
+\f1 \
+\
+\
+
+\f0 \'b6\'d4\'cc\'d8\'ca\'e2\'d7\'d6\'b7\'fb\'d7\'aa\'d2\'e5\'a3\'ba
+\f1 \
+SQL> select * from emp where ename like '%\\_%' escape '\\';\
+\
+ EMPNO ENAME	  JOB		   MGR HIREDATE  SAL  COMM     DEPTNO\
+------ ---------- --------- ---------- ---------- ---------- ---------- ----------\
+     1 tom_abc						8000		10\
+\
+\
+SQL> select * from emp where deptno = 10 order by sal desc;\
+\
+SQL> select ename, sal*12 from emp order by sal*12;\
+\
+
+\f0 \'b0\'b4\'b5\'da
+\f1 2
+\f0 \'c1\'d0\'bd\'f8\'d0\'d0\'c5\'c5\'d0\'f2\'a3\'ba
+\f1 \
+SQL> select ename, sal*12 from emp order by 2; \
+\
+SQL> select * from emp order by deptno, sal;\
+\
+SQL> select * from emp order by comm desc nulls last;\
+\
+SQL> select to_char(sysdate-1, 'yyyy-mm-dd hh24:mi:ss') from dual;\
+\
+ 1 --
+\f0 \'b2\'e9\'d1\'af\'b2\'bf\'c3\'c5\'b5\'c4\'c6\'bd\'be\'f9\'b9\'a4\'d7\'ca
+\f1 \
+ select avg(sal)\
+ from emp\
+ group by deptno --
+\f0 \'b6\'d4\'b2\'bf\'c3\'c5\'bd\'f8\'d0\'d0\'b7\'d6\'d7\'e9
+\f1  10
+\f0 \'b2\'bf\'c3\'c5
+\f1 1
+\f0 \'d7\'e9
+\f1  20
+\f0 \'b2\'bf\'c3\'c5
+\f1 1
+\f0 \'d7\'e9
+\f1  30
+\f0 \'b2\'bf\'c3\'c5
+\f1 1
+\f0 \'d7\'e9
+\f1 \
+ \
+ //
+\f0 \'b3\'e9\'cf\'f3
+\f1 ........\
+ select a, b, c\
+ from emp\
+ group by a, b, c, d //ok\
+ \
+  select a, b, c d, e\
+ from emp\
+ group by a, b, c, d //err\
+ \
+ select deptno\
+ from emp\
+ group by deptno --
+\f0 \'b6\'d4\'b2\'bf\'c3\'c5\'bd\'f8\'d0\'d0\'b7\'d6\'d7\'e9
+\f1  10
+\f0 \'b2\'bf\'c3\'c5
+\f1 1
+\f0 \'d7\'e9
+\f1  20
+\f0 \'b2\'bf\'c3\'c5
+\f1 1
+\f0 \'d7\'e9
+\f1  30
+\f0 \'b2\'bf\'c3\'c5
+\f1 1
+\f0 \'d7\'e9
+\f1 \
+ \
+ --
+\f0 \'d4\'da\'ca\'b9\'d3\'c3\'b7\'d6\'d7\'e9\'ba\'af\'ca\'fd\'ca\'b1
+\f1 ,
+\f0 \'d4\'da
+\f1 select
+\f0 \'d6\'d0\'b3\'f6\'cf\'d6\'b5\'c4
+\f1 \cf2 a b c
+\f0 \'c1\'d0
+\f1 , 
+\f0 \'b1\'d8\'d0\'eb\'ca\'c7
+\f1 group by 
+\f0 \'ba\'f3\'c3\'e6\'bc\'af\'ba\'cf\'b5\'c4\'d7\'d3\'bc\'af
+\f1 \cf0 \
+ --
+\f0 \'d4\'da
+\f1 group by 
+\f0 \'d6\'d0\'c3\'bb\'d3\'d0\'b3\'f6\'cf\'d6\'b5\'c4\'cf\'ee
+\f1 ,
+\f0 \'b2\'bb\'c4\'dc\'d4\'d9
+\f1 select 
+\f0 \'bd\'f8\'d0\'d0\'bc\'ec\'cb\'f7
+\f1 \
+ -- 
+\f0 \'cf\'c8\'b6\'d4\'ca\'fd\'be\'dd\'bd\'f8\'d0\'d0\'b7\'d6\'d7\'e9\'a3\'ac\'c8\'bb\'ba\'f3\'d4\'d9\'d7\'e9\'c9\'cf\'bd\'f8\'d0\'d0\'ca\'fd\'be\'dd\'b2\'e9\'d1\'af
+\f2 \cf3 \expnd0\expndtw0\kerning0
+\uc0\u25968 \'d5\'75\
+\
+\uc0\u24211 \'a4\'a4\'aa\'ba\'aa\'ed\'ac\'4f\'a4\'40\u20010 \'a4\'47\u32500 \'aa\'ed\'a1\'41\'aa\'f0\'a6\'5e\'aa\'ba\u32467 \'aa\'47
+\f0 \'ca\'c7\'d2\'bb\'d5\'c5\'b6\'fe\'ce\'ac\'b1\'ed\'a3\'ac\'bc\'c8\'c8\'bb\'c4\'dc\'d4\'da\'ca\'fd\'be\'dd\'bf\'e2\'b5\'c4\'b6\'fe\'ce\'ac\'b1\'ed\'d6\'d0\'bd\'f8\'d0\'d0\'b2\'e9\'d1\'af\'a3\'ac\'c4\'dc\'b7\'f1\'d4\'da\'bd\'e1\'b9\'fb\'bc\'af\'b5\'c4\'b6\'fe\'ce\'ac\'b1\'ed\'c9\'cf\'bc\'cc\'d0\'f8\'bd\'f8\'d0\'d0\'b2\'e9\'d1\'af\'a3\'bf\
+\'b4\'f0\'a3\'ba\'bf\'c9\'d2\'d4\'a3\'achaving\'cc\'f5\'bc\'fe\'be\'cd\'ca\'c7\'d4\'da\'bd\'e1\'b9\'fb\'bc\'af\'c9\'cf\'bc\'cc\'d0\'f8\'bd\'f8\'d0\'d0\'c9\'b8\'d1\'a1\'a1\'a3where
+\f2 \uc0\u26465 \'a5\'f3
+\f0 \'ca\'c7\'d4\'da\'ca\'fd\'be\'dd\'bf\'e2\'b5\'c4\'b1\'ed\'c9\'cf\'bd\'f8\'d0\'d0\'c9\'b8\'d1\'a1\'a3\'ac\cf4 having\'cc\'f5\'bc\'fe\'ca\'c7\'d4\'da\'bb\'ba\'b4\'e6\'d6\'d0\'bd\'f8\'d0\'d0\'c9\'b8\'d1\'a1\'a3\'ac\'d2\'b2\'be\'cd\'ca\'c7\'b6\'fe\'b4\'ce\'c9\'b8\'d1\'a1\'a1\'a3\
+
+\f1 \cf0 \kerning1\expnd0\expndtw0 order by 
+\f0 \'d0\'e8\'d2\'aa\'b7\'c5\'d4\'da\'d7\'ee\'ba\'f3\'a3\'ac\'d2\'b2\'be\'cd\'ca\'c7\'b6\'d4\'cf\'eb\'d2\'aa\'cf\'d4\'ca\'be\'b5\'c4\'d7\'ee\'d6\'d5\'ca\'fd\'be\'dd\'bd\'f8\'d0\'d0\'c5\'c5\'d0\'f2\
+\pard\pardeftab420\fi420\partightenfactor0
+
+\f1 \cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf2 group by
+\f0 \'b5\'c4\'b1\'be\'d6\'ca\'ca\'c7\'b6\'d4\'d2\'aa\'cf\'d4\'ca\'be\'b5\'c4\'ca\'fd\'be\'dd\'bd\'f8\'d0\'d0\'b7\'d6\'d7\'e9\'cf\'d4\'ca\'be\'a3\'ac\'cb\'f9\'d2\'d4
+\f1 group by
+\f0 \'d4\'da
+\f1 where
+\f0 \'b5\'c4\'ba\'f3\'c3\'e6\cf0 \'a1\'a3
+\f1 \
+\cf2 order by
+\f0 \'b5\'c4\'b1\'be\'d6\'ca\'ca\'c7\'b6\'d4\'d2\'aa\'cf\'d4\'ca\'be\'b5\'c4\'ca\'fd\'be\'dd\'bd\'f8\'d0\'d0\'c5\'c5\'d0\'f2\'cf\'d4\'ca\'be\'a3\'ac\'cb\'f9\'d2\'d4
+\f1 order by 
+\f0 \'b7\'c5\'d4\'da
+\f1 having
+\f0 \'ba\'f3\'c3\'e6\cf0 \'a1\'a3
+\f1 \
+\
+where
+\f0 \'cc\'f5\'bc\'fe\'ca\'c7\'d4\'da\'ca\'fd\'be\'dd\'bf\'e2\'b1\'ed\'c9\'cf\'bd\'f8\'d0\'d0\'c9\'b8\'d1\'a1\'a3\'ac
+\f1 having
+\f0 \'cc\'f5\'bc\'fe\'ca\'c7\'d4\'da\'bf\'cd\'bb\'a7\'b6\'cb\'b5\'c4\'bb\'ba\'b4\'e6\'d6\'d0\'bd\'f8\'d0\'d0\'c9\'b8\'d1\'a1\'a3\'ac\'d2\'b2\'be\'cd\'ca\'c7\'b5\'da\'b6\'fe\'b4\'ce\'c9\'b8\'d1\'a1\'a1\'a3where\'ba\'cdhaving\'b6\'bc\'ca\'c7\'d4\'da\'b9\'fd\'c2\'cb\'a3\'ac\'d6\'bb\'b2\'bb\'b9\'fd\'b9\'fd\'c2\'cb\'b5\'c4\'c4\'da\'b4\'e6\'bf\'d5\'bc\'e4\'b2\'bb\'d2\'bb\'d1\'f9\'a3\'acwhere\'ca\'c7\'d4\'daoracle\'b7\'fe\'ce\'f1\'c6\'f7\'b5\'c4\'c4\'da\'b4\'e6\'d6\'d0\'b9\'fd\'c2\'cb\'a3\'achaving\'ca\'c7\'d4\'da\'bf\'cd\'bb\'a7\'b6\'cb\'b5\'c4\'c4\'da\'b4\'e6\'d6\'d0\'b9\'fd\'c2\'cb\'a3\'ac\'d5\'e2\'d1\'f9\'cb\'b5\'b5\'c4\'bb\'b0\'a3\'acgroup by\'d2\'b2\'ca\'c7\'d4\'daoracle\'b7\'fe\'ce\'f1\'c6\'f7\'b6\'cb\'d7\'f6\'b5\'c4\'a3\'acorder by\'ca\'c7\'d4\'da\'bf\'cd\'bb\'a7\'b6\'cb\'d7\'f6\'b5\'c4\'a1\'a3\
+\
+\'b6\'e0\'b1\'ed\'b2\'e9\'d1\'af\'ca\'b1\'b5\'c4\'b5\'d1\'bf\'a8\'b6\'fb\'bb\'fd\'a3\'ba\
+	\'c1\'d0\'ca\'fd	\'cf\'e0\'bc\'d3\
+	\'d0\'d0\'ca\'fd	\'bc\'c7\'c2\'bc\'cf\'e0\'b3\'cb\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 {{\NeXTGraphic 截屏2020-07-27 下午4.28.47.png \width22320 \height6740 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}�}
+\f0\fs36 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\'ce\'aa\'c1\'cb\'b1\'dc\'c3\'e2\'b5\'d1\'bf\'a8\'b6\'fb\'bb\'fd\'a3\'ac\'bf\'c9\'d2\'d4\'d4\'dawhere\'b9\'fd\'c2\'cb\'d6\'d0\'bc\'d3\'c8\'eb\'d3\'d0\'d0\'a7\'b5\'c4\'c1\'ac\'bd\'d3\'cc\'f5\'bc\'fe\'a1\'a3\'d2\'b2\'be\'cd\'ca\'c7\'cb\'b5oracle\'b7\'fe\'ce\'f1\'c6\'f7\'c4\'da\'b2\'bf\'bb\'e1\'b2\'fa\'c9\'fa\'b5\'d1\'bf\'a8\'b6\'fb\'bb\'fd\'a3\'ac\'ce\'d2\'c3\'c7\'d0\'e8\'d2\'aa\cf2 \'d4\'da\'b5\'d1\'bf\'a8\'b6\'fb\'bb\'fd\'b5\'c4\'bb\'f9\'b4\'a1\'c9\'cf\'bd\'f8\'d0\'d0\'cc\'f5\'bc\'fe\'b9\'fd\'c2\'cb\cf0 \
+\
+SQL> select * from dept, emp where dept.deptno = emp.deptno;\
+\
+SQL> select dept.deptno, dept.dname, count(*) from dept, emp where dept.deptno = emp.deptno group by dept.deptno, dept.dname;\
+\
+group by\'b7\'d6\'d7\'e9\'cf\'d4\'ca\'be\'ca\'b1\'d2\'bb\'b0\'e3select \'ba\'f3\'c3\'e6\'d3\'d0\'b7\'d6\'d7\'e9\'ba\'af\'ca\'fd\'a3\'ac\'b6\'f8\'b7\'d6\'d7\'e9\'ba\'af\'ca\'fd\'d2\'bb\'b0\'e3\'d6\'bb\'d3\'d0\'d2\'bb\'d0\'d0\'a3\'ac\'d3\'d0\'b7\'d6\'d7\'e9\'ba\'af\'ca\'fd\'b5\'c4\'ca\'b1\'ba\'f2\'b1\'ed\'ca\'be\'d0\'e8\'d2\'aa\'b6\'d4\'b2\'e9\'d1\'af\'b5\'bd\'b5\'c4\'bd\'e1\'b9\'fb\'bd\'f8\'d0\'d0\'b7\'d6\'d7\'e9\'cf\'d4\'ca\'be\'a1\'a3\
+\
+select dept.deptno, dept.dname, count(emp.empno) from dept, emp where dept.deptno = emp.deptno(+) group by dept.deptno, dept.dname;\
+\
+\pard\pardeftab720\sl520\sa320\partightenfactor0
+
+\f3\b \cf5 \cb6 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec5 \'d3\'d0
+\f4 +
+\f3 \'ba\'c5\'b5\'c4\'b1\'ed\'b2\'bb\'c8\'ab\'b2\'bf\'cf\'d4\'ca\'be\'a3\'ac\'b6\'d4\'c3\'e6\'b5\'c4\'b1\'ed\'c8\'ab\'b2\'bf\'cf\'d4\'ca\'be\'a1\'a3
+\f5\b0\fs32 \cf7 \strokec7 \
+
+\f3\b\fs36 \cf5 \strokec5 \'bf\'da\'be\'f7
+\f4 :
+\f5\b0\fs32 \cf7 \strokec7 \
+
+\f3\b\fs36 \cf8 \strokec8 \'d3\'d2\'cd\'e2\'c1\'ac\'bd\'d3
+\f4 +
+\f3 \'d4\'da\'d7\'f3
+\f5\b0\fs32 \cf7 \strokec7 \
+
+\f3\b\fs36 \cf8 \strokec8 \'d7\'f3\'cd\'e2\'c1\'ac\'bd\'d3
+\f4 +
+\f3 \'d4\'da\'d3\'d2
+\f5\b0\fs32 \cf7 \strokec7 \
+
+\f3\b\fs36 \cf8 \strokec8 \'d3\'d0
+\f4 +
+\f3 \'b2\'bb\'c8\'ab\'cf\'d4
+\f5\b0\fs32 \cf7 \strokec7 \
+
+\f3\b\fs36 \cf8 \strokec8 \'ce\'de
+\f4 +
+\f3 \'be\'cd\'c8\'ab\'cf\'d4
+\f5\b0\fs32 \cf7 \strokec7 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+select e1.empno, e1.ename, e1.mgr from emp e1, emp e2 where e1.mgr = e2.empno(+) group by e1.empno, e1.ename, e1.mgr;\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 select e1.ename || \'a1\'aemanageris\'a1\'af  || e2.ename from emp e1, emp e2 where e1.mgr = e2.empno;\
+\
+SQL> select e1.ename || 'boss is' || e2.ename from emp e1, emp e2 where e1.mgr=e2.empno(+);\
+SQL> select e1.ename || 'boss is' || nvl(e2.ename, \'a1\'aehimself\'a1\'af) from emp e1, emp e2 where e1.mgr=e2.empno(+);\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\'d7\'d3\'b2\'e9\'d1\'af\'b5\'c4\'b1\'be\'d6\'ca\'be\'cd\'ca\'c7sql\'d3\'ef\'be\'e4\'b5\'c4\'c7\'b6\'cc\'d7\'a3\'ba\
+SQL> select * from emp where sal > (select emp.sal from emp where ename='SCOTT');\
+
+\f1 \
+SQL> select * from (select empno, ename from emp);\
+\
+SQL> select e.* from emp e, dept d where e.deptno=d.deptno and d.dname='SALES';\
+\
+
+\f0 \'b6\'e0\'b1\'ed\'b2\'e9\'d1\'af\'ba\'cd\'d7\'d3\'b2\'e9\'d1\'af\'b6\'bc\'bf\'c9\'d2\'d4\'ca\'b5\'cf\'d6\'cd\'ac\'d2\'bb\'b8\'f6\'ce\'ca\'cc\'e2\'ca\'b1\'a3\'ac\'d3\'c5\'cf\'c8\'ca\'b9\'d3\'c3\'b6\'e0\'b1\'ed\'b2\'e9\'d1\'af\'a3\'ac\'d2\'f2\'ce\'aa\'d7\'d3\'b2\'e9\'d1\'af\'bc\'ec\'cb\'f7\'ca\'fd\'be\'dd\'bf\'e22\'b4\'ce\'a3\'ac\'b6\'e0\'b1\'ed\'b2\'e9\'d1\'af\'bc\'ec\'cb\'f7\'ca\'fd\'be\'dd\'bf\'e2\'d2\'bb\'b4\'ce\'a1\'a3\'b4\'cb\'b4\'a6\'b5\'c4\'ca\'fd\'be\'dd\'bf\'e2\'d6\'b8\'d3\'b2\'c5\'cc\'d6\'d0\'b5\'c4\'ca\'fd\'be\'dd\'bf\'e2\'ce\'c4\'bc\'fe\'a1\'a3\
+\
+\'ce\'aa\'ca\'b2\'c3\'b4\'b6\'e0\'b1\'ed\'b2\'e9\'d1\'af\'b5\'c4\'cb\'d9\'b6\'c8\'b1\'c8\'d7\'d3\'b2\'e9\'d1\'af\'b5\'c4\'cb\'d9\'b6\'c8\'d2\'aa\'bf\'ec\'a3\'bf\'c8\'e7\'b9\'fb\'c4\'dc\'b9\'bb\'cd\'ac\'d1\'f9\'b5\'c3\'b5\'bd\'d2\'bb\'b8\'f6\'bd\'e1\'b9\'fb\'b5\'c4\'bb\'b0\'a3\'bf\
+\'ce\'d2\'cf\'eb\'bf\'c9\'d2\'d4\'b0\'d1select \'ba\'f3\'b5\'c4\'bd\'e1\'b9\'fb\'d2\'b2\'c0\'ed\'bd\'e2\'ce\'aa\'d2\'bb\'d5\'c5\'c4\'da\'b4\'e6\'b1\'ed\'a3\'ac\'b6\'e0\'b1\'ed\'b2\'e9\'d1\'af\'cf\'e0\'b5\'b1\'d3\'da\'d4\'daoracle\'b7\'fe\'ce\'f1\'c6\'f7\'c4\'da\'b4\'e6\'d6\'d0\'c9\'fa\'b3\'c9\'c1\'cb\'d2\'bb\'d5\'c5\'b1\'ed\'a3\'ac\'b6\'f8\'d7\'d3\'b2\'e9\'d1\'af\'cf\'e0\'b5\'b1\'d3\'da\'c9\'fa\'b3\'c9\'c1\'cb2\'d5\'c5\'b1\'ed\'a3\'ac\'cb\'f9\'d2\'d4\'b6\'e0\'b1\'ed\'b2\'e9\'d1\'af\'bf\'ec\'a1\'a3\'bb\'b9\'d3\'d0\'c1\'ed\'cd\'e2\'d2\'bb\'b8\'f6\'b8\'fc\'d6\'d8\'d2\'aa\'b5\'c4\'d4\'ad\'d2\'f2\'a3\'ac\'be\'cd\'ca\'c7\'b4\'d3\'d3\'b2\'c5\'cc\'cd\'f9\'c4\'da\'b4\'e6\'b6\'c1\'ca\'fd\'be\'dd\'b5\'c4\'ca\'b1\'ba\'f2\'a3\'ac\'d7\'d3\'b2\'e9\'d1\'af\'ca\'c7\'b7\'d6\'c1\'bd\'b4\'ce\'b6\'c1\'c8\'eb\'b5\'c4\'a3\'ac\'b6\'f8\'b6\'e0\'b1\'ed\'b2\'e9\'d1\'af\'ca\'c7\'d2\'bb\'b4\'ce\'b6\'c1\'c8\'eb\'b5\'c4\'a3\'ac\'d2\'b2\'be\'cd\'ca\'c7\'cb\'b5\'b6\'e0\'b1\'ed\'b2\'e9\'d1\'af\'d2\'bb\'b4\'ce\'b6\'c1\'c8\'eb\'b5\'c4\'ca\'fd\'be\'dd\'c1\'bf\'b1\'c8\'bd\'cf\'b4\'f3\'a1\'a3\'d5\'e2\'d1\'f9\'bc\'f5\'c9\'d9\'c1\'cb\'d3\'b2\'c5\'cc\'b5\'c4\'b6\'c1\'d0\'b4\'b4\'ce\'ca\'fd\'a1\'a3\
+\
+select * from emp where sal > all (select sal from emp where deptno = 30);\
+\
+any \'b4\'f3\'d3\'da\'d5\'e2\'b8\'f6\'bc\'af\'ba\'cf\'d6\'d0\'b5\'c4\'d7\'ee\'d0\'a1\'d6\'b5\'be\'cd\'bf\'c9\'d2\'d4\
+all \'b4\'f3\'d3\'da\'d5\'e2\'b8\'f6\'bc\'af\'ba\'cf\'b5\'c4\'d7\'ee\'b4\'f3\'d6\'b5\
+\
+The reason is that all conditions that compare a null value result in null.\
+\
+\'ce\'b1\'c1\'d0rownum\'b5\'c4\'b3\'f5\'ca\'bc\'d6\'b5=1\'a3\'ac\'c3\'bf\'b2\'e9\'d1\'af\'b3\'f6\'d2\'bb\'cc\'f5\'ba\'f3\'d7\'d4\'b6\'af\'bc\'d31\'a3\'ac\'b5\'d7\'b2\'e3\'d2\'b2\'ca\'c7for\'d1\'ad\'bb\'b7\'bf\'d8\'d6\'c6\'b5\'c4\'a3\'ac\'b5\'b1where\'c0\'b4\'bd\'f8\'d0\'d0\'c9\'b8\'d1\'a1\'ca\'b1\'a3\'ac\'c8\'e7\'b9\'fbweher rownum > 3\'a3\'ac\'c4\'c7\'cc\'f5\'bc\'fe\'d6\'b1\'bd\'d3\'b2\'bb\'b7\'fb\'ba\'cf\'c1\'cb\'a3\'ac\'cb\'f9\'d2\'d4\'b2\'e9\'d1\'af\'b2\'bb\'b5\'bd\'bd\'e1\'b9\'fb\'a1\'a3\
+\
+SQL> select * from (select * from emp order by sal desc) where rownum < 3;\
+\
+rownum\'ce\'b1\'c1\'d0\'ca\'c7\'b8\'fa\'cb\'e6\'b1\'bb\'b2\'e9\'d1\'af\'b5\'c4\'bc\'af\'ba\'cf\'b5\'c4\'a3\'ac\'d2\'b2\'be\'cd\'ca\'c7\'b8\'fa\'d7\'c5\'d4\'ad\'c0\'b4\'b5\'c4\'c4\'da\'b4\'e6\'bf\'d5\'bc\'e4\'b5\'c4\'a1\'a3\
+\
+SQL> create table t1 as select * from emp where 1=2;\
+\
+SQL> insert into t1 select * from emp where deptno=10;\
+\
+DML\'d3\'ef\'be\'e4	(Data Manipulation Language) \'ca\'fd\'be\'dd\'bf\'e2\'b2\'d9\'d7\'f7\'d3\'ef\'d1\'d4\
+	insert update delete select\
+DDL\'d3\'ef\'d1\'d4	data definition Lanaguage\cf2 \'a3\'a8DDL\'bf\'c9\'d2\'d4\'c8\'cf\'ce\'aa\'ca\'c7\'d0\'de\'b8\'c4\'d4\'aa\'ca\'fd\'be\'dd\'a3\'a9\cf0 \
+		create table \
+		create view index sequence synonym\'cd\'ac\'d2\'e5\'b4\'ca\
+		truncate table\
+DCL\'d3\'ef\'d1\'d4 data control language\'ca\'fd\'be\'dd\'d3\'ef\'d1\'d4 \
+		commit rollback savetpointe\
+\
+SQL> update t1 set deptno = 20 where empno = 7782;\
+\
+SQL> delete t1 where empno = 7782;\
+\
+SQL> truncate table t1;\
+\
+delete\'ba\'cdtruncate\'b1\'ed\'c7\'f8\'b1\'f0\
+	1 delete\'d6\'f0\'cc\'f5\'c9\'be\'b3\'fd truncate\'cf\'c8\'b4\'dd\'bb\'d9\'b1\'ed\'d4\'d9\'d6\'d8\'bd\'a8\
+	2 delete\'d3\'ef\'d1\'d4\'ca\'c7DML\'d3\'ef\'d1\'d4 truncate\'ca\'c7DDL\
+		DML\'d3\'ef\'d1\'d4\'bf\'c9\'d2\'d4\'c9\'c1\'bb\'d8 	\'d7\'f6\'b4\'ed\'b5\'c4\'b2\'a2\'c7\'d2\'cc\'e1\'bd\'bb\'c1\'cb.\'bf\'c9\'cd\'a8\'b9\'fd\'c9\'c1\'bb\'d8,\'b3\'b7\'cf\'fa\'b2\'d9\'d7\'f7\
+		DDL\'d3\'ef\'d1\'d4\'b2\'bb\'bf\'c9\'d2\'d4\'c9\'c1\'bb\'d8	flashback	\
+	3 delete\'ca\'c7\'d6\'f0\'cc\'f5\'c9\'be\'b3\'fd,\'bb\'e1\'b2\'fa\'c9\'fa\'cb\'e9\'c6\'ac, 	truncate\'b2\'bb\'bb\'e1\'b2\'fa\'c9\'fa\'cb\'e9\'c6\'ac \
+		\'d0\'d0\'d2\'c6\'b6\'af\'b9\'a6\'c4\'dc: \'d2\'aa\'bf\'aa\'c6\'f4\'c9\'c1\'bb\'d8\'b9\'a6\'c4\'dc,\'b1\'d8\'d0\'eb\'d2\'aa\'bf\'aa\'c6\'f4\'d0\'d0\'d2\'c6\'b6\'af\'b9\'a6\'c4\'dc\
+	4 delete\'b2\'bb\'bb\'e1\'ca\'cd\'b7\'c5\'bf\'d5\'bc\'e4 truncate\'bb\'e1\
+	5 delete\'bf\'c9\'d2\'d4\'bb\'d8\'b9\'f6 truncate\'b2\'bb\'bf\'c9\'d2\'d4\
+	6 oracle delete\'bf\'ec mysql truncate\'bf\'ec.  ---SQL5 \'d3\'ef\'d1\'d4....\
+\
+SQL> set feedback off;\
+\
+SQL> @/home/oracle/Desktop/Sql.sql\
+\
+\'ca\'c2\'ce\'f1\'b8\'faoracle\'b5\'c4\'c1\'bd\'b4\'ce\'cc\'e1\'bd\'bb\'d3\'d0\'b9\'d8\'cf\'b5\'a3\'acDML\'d3\'ef\'be\'e4\'cc\'e1\'bd\'bb\'b5\'bd\'c1\'cbPDA\'c7\'f8\'d3\'f2\'cb\'f9\'b6\'d4\'d3\'a6\'b5\'c4\'c4\'da\'b4\'e6\'c9\'cf\'c1\'cb\'a3\'ac\'b6\'f8commit\'bb\'e1\'cc\'e1\'bd\'bb\'b5\'bdGDA\'cb\'f9\'d4\'da\'b5\'c4\'c4\'da\'b4\'e6\'d6\'d0\'a3\'ac\'b6\'f8GDA\'b5\'c4\'c4\'da\'b4\'e6\'b7\'a2\'c9\'fa\'c1\'cb\'b1\'e4\'bb\'af\'b5\'c4\'cd\'ac\'ca\'b1\'a3\'ac\'bb\'e1\'d0\'b4\'b5\'bdoracle\'d3\'b2\'c5\'cc\'b5\'c4\'ca\'fd\'be\'dd\'bf\'e2\'d6\'d0\'a1\'a3\
+\
+-\'c9\'be\'b3\'fd\'b1\'ed\
+drop table test1;\
+--oracle\'b5\'c4\'bb\'d8\'ca\'d5\'d5\'be\
+	-- \'b2\'e9\'bf\'b4\'bb\'d8\'ca\'d5\'d5\'be	show recyclebin\
+	-- \'c7\'e5\'bf\'d5\'bb\'d8\'ca\'d5\'d5\'be	purge recyclebin;\
+	-- \'b3\'b9\'b5\'d7\'c9\'be\'b3\'fd\'d2\'bb\'d5\'c5\'b1\'ed\
+		drop table test1 purge; --\'d6\'b1\'bd\'d3\'c9\'be\'b3\'fd\'d2\'bb\'d5\'c5\'b1\'ed,\'b2\'bb\'cd\'a8\'b9\'fd\'bb\'d8\'ca\'d5\'d5\'be\
+	-- \'bb\'b9\'d4\'ad\'b1\'ed(\'b4\'d3\'bb\'d8\'ca\'d5\'d5\'be\'d6\'d0\'b7\'b5\'b8\'b4\'d4\'ad\'b1\'ed)\
+		\'c9\'c1\'bb\'d8\'b5\'c4\'c4\'da\'c8\'dd \
+	--\'b9\'d8\'d3\'da\'bb\'d8\'ca\'d5\'d5\'be\'d7\'a2\'d2\'e2\'ce\'ca\'cc\'e2\
+	--\'b2\'a2\'b2\'bb\'ca\'c7\'cb\'f9\'d3\'d0\'b5\'c4\'c8\'cb\'b6\'bc\'d3\'d0\'bb\'d8\'ca\'d5\'d5\'be \'b9\'dc\'c0\'ed\'d4\'b1\'c3\'bb\'d3\'d0\'bb\'d8\'ca\'d5\'d5\'be	\
+SQL> grant create view to scott;\
+\
+SQL> create view v6 as select e.empno, ename, sal, sal*12 salm, sal*12+nvl(comm, 0) saly, d.dname mydname from emp e, dept d where e.deptno = d.deptno;\
+\
+\'d0\'f2\'c1\'d0\'a1\'aa\
+1\'a1\'a2\'ce\'aa\'b6\'e0\'b8\'f6\'b1\'ed\'cc\'e1\'b9\'a9\'d7\'d4\'d4\'f6\'d7\'d6\'b6\'ce\'a1\'ad\'a3\'ac\'d2\'bb\'b0\'e3\'d6\'f7\'bc\'fc\'c0\'b4\'d4\'b4\
+2\'a1\'a2\'d0\'f2\'c1\'d0\'d7\'b0\'c8\'eb\'c4\'da\'b4\'e6......\'cb\'d9\'b6\'c8\'bf\'ec\
+	[1 2 \'a1\'ad 3 \'a1\'ad 20]\
+3\'a1\'a2\'b4\'b4\'bd\'a8\'d0\'f2\'c1\'d0\
+	create sequence myseq;\
+	nextval \'ba\'cd currval \'ce\'b1\'c1\'d0\
+	\
+	SQL> select myseq.nextval from dual;\
+	SQL> select myseq.currval from dual;\
+\
+	oracle\'bd\'e2\'ca\'cd\'c6\'f7\'d4\'da\'bd\'e2\'ca\'cdmyseq.nextval\'d5\'e2\'b8\'f6\'b4\'fa\'c2\'eb\'ca\'b1\'a3\'ac\'bb\'e1\'d2\'c6\'b6\'af\'c4\'da\'b4\'e6\'d6\'d0myseq\'b6\'d4\'cf\'f3\'d6\'d0\'b5\'c4\'d6\'b8\'d5\'eb\'a3\'ac\'c8\'bb\'ba\'f3\'d4\'d9\'c8\'a1\'d6\'b5\'a3\'ac\'cb\'f9\'d2\'d4\'d2\'bb\'bf\'aa\'ca\'bc\'b2\'bb\'c4\'dc\'d6\'b1\'bd\'d3\'c8\'a1myseq.currval\'b5\'c4\'d6\'b5\
+\
+\'cb\'f7\'d2\'fd\'a3\'ba\
+1\'a1\'a2\'b1\'ed\'ca\'fd\'be\'dd\'b4\'e6\'b7\'c5\'d4\'da\'b1\'ed\'bf\'d5\'bc\'e4\'d6\'d0\'c1\'cb\'a1\'ad\'b1\'ed\'b5\'c4\'ca\'fd\'be\'dd\'ba\'cd\'b8\'c3\'b1\'ed\'b5\'c4\'cb\'f7\'d2\'fd\'ca\'c7\'b5\'a5\'b6\'c0\'b4\'e6\'b4\'a2\'b5\'c4\'a1\'ad\'c9\'be\'b3\'fd\'cb\'f7\'d2\'fd\'b2\'bb\'d3\'b0\'cf\'ec\'b1\'ed\'b5\'c4\'ca\'fd\'be\'dd\'a1\'a3\
+2\'a1\'a2\'cb\'f7\'d2\'fd\'bb\'e1\'cc\'e1\'b8\'df\'b2\'e9\'d1\'af\'cb\'d9\'b6\'c8\
+\
+gcc dm01_hello.c -o dm01_hello -I/home/oracle/app/oracle/product/11.2.0/dbhome_1/precomp/public -L/home/oracle/app/oracle/product/11.2.0/dbhome_1/lib -lclntsh\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 g++ dm02_hello.cc -o dm02_hello -I/home/oracle/app/oracle/product/11.2.0/dbhome_1/precomp/public -L/home/oracle/app/oracle/product/11.2.0/dbhome_1/lib -lclntsh\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\'bd\'e2\'be\'f6oracle\'ca\'fd\'be\'dd\'bf\'e2\'d6\'d0\'ce\'c4\'ce\'ca\'cc\'e2\'a3\'ba\
+SQL> select userenv('language') from dual;\
+AMERICAN_AMERICA.AL32UTF8\
+\
+\'d0\'de\'b8\'c4.bash_profile\
+NLS_LANG=AMERICAN_AMERICA.AL32UTF8;\
+export NLS_LANG
+\f1 \
+\
+$ oerr ora 1017\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f6 \cf9 \CocoaLigature0 mysql> update student set class_id=1 where id<=5;\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0 \cf0 \CocoaLigature1 \'d0\'de\'b8\'c4\cf9 \CocoaLigature0 \'ca\'fd\'be\'dd\'ca\'b1\'b2\'bb\'d0\'e8\'d2\'aa\'bc\'d3
+\f6 table
+\f0 \'b9\'d8\'bc\'fc\'d7\'d6\'a3\'ac\'d0\'e8\'d2\'aa\'d4\'aa\'ca\'fd\'be\'dd\'ca\'b1\'a3\'ac\'d0\'e8\'d2\'aa\'bc\'d3
+\f6 table
+\f0 \'a3\'ac\'bb\'f2\'d5\'df
+\f6 database
+\f0 \'b5\'c8\'b9\'d8\'bc\'fc\'d7\'d6\'a1\'a3
+\f6 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+mysql> select class_id, count(*) from student group by class_id;\
+\
+
+\f0 \'b7\'d6\'d7\'e9\'ba\'af\'ca\'fd\'d4\'f5\'c3\'b4\'c0\'ed\'bd\'e2\'a3\'bf\'bc\'ab\'cf\'de\'cb\'bc\'ce\'ac\'a3\'ac\'b5\'b1\'b1\'ed\'d6\'d0\'d6\'bb\'d3\'d0\'d2\'bb\'cc\'f5\'ca\'fd\'be\'dd\'ca\'b1\'a3\'ac\'d6\'bb\'d3\'d0\'d2\'bb\'b8\'f6\'d7\'e9\'ca\'b1\'b5\'c4\'c7\'e9\'bf\'f6\'ca\'c7\'ca\'b2\'c3\'b4\'a3\'bf\'d5\'e2\'b8\'f6\'c7\'e9\'bf\'f6\'c2\'fa\'d7\'e3\'a3\'ac\'c6\'e4\'cb\'fb\'c7\'e9\'bf\'f6\'d2\'b2\'c2\'fa\'d7\'e3\'a3\'ac\'ca\'fd\'be\'dd\'bf\'e2\'bd\'e2\'ca\'cd\'c6\'f7\'b0\'ef\'ce\'d2\'c3\'c7\'ca\'b5\'cf\'d6\'c1\'cb\'d5\'e2\'d2\'bb\'b5\'e3\'a1\'a3
+\f6 \
+\
+mysql> select date_add(now(), interval 1 day) tomorrow, now() today, date_sub(now(), interval 1 day) yesterday;\
+\
+mysql> create table student(\
+    -> id INT(11) primary key auto_increment, \
+    -> name varchar(20) unique,\
+    -> passwd varchar(15) not null,\
+    -> classid INT(11),  #
+\f0 \'d7\'a2\'d2\'e2\'d5\'e2\'b8\'f6\'b5\'d8\'b7\'bd\'b2\'bb\'d2\'aa\'c9\'d9\'b6\'ba\'ba\'c5
+\f6 \
+    -> constraint stu_classid_FK  foreign key(classid) references myclass(id)\
+    -> );\
+\
+$ mysqldump -uroot -p mydb2 > ./Desktop/mydb2.sql;\
+\
+$ mysql -u root -p mydb2<./Desktop/mydb2.sql\
+\
+
+\f0 \cf0 \CocoaLigature1 \'d2\'b2\cf9 \CocoaLigature0 \'bf\'c9\'d2\'d4\'b4\'d3\'b5\'b1\'c7\'b0\'c4\'bf\'c2\'bc\'a3\'ac\'b5\'c7\'c2\'bd\'b5\'bd\'ca\'fd\'be\'dd\'bf\'e2\'c4\'da\'b2\'bf\'a3\'ac
+\f6 source ./
+\f0 \'ce\'c4\'bc\'fe\'c3\'fb
+\f6 .sql
+\f0 \'a3\'ac\'c0\'b4\'bb\'d6\'b8\'b4\'ca\'fd\'be\'dd\'bf\'e2
+\f6 \
+\
+mysql> show variables like 'character%';\
+\
++--------------------------+-----------------------------------------------------------+\
+| Variable_name            | Value                                                     |\
++--------------------------+-----------------------------------------------------------+\
+| character_set_client     | \cf2 utf8 \cf9                                                      |\
+| character_set_connection | \cf2 utf8\cf9                                                       |\
+| character_set_database   | latin1                                                    |\
+| character_set_filesystem | binary                                                    |\
+| character_set_results    | \cf2 utf8\cf9                                                       |\
+| character_set_server     | latin1                                                    |\
+| character_set_system     | utf8                                                      |\
+| character_sets_dir       | /usr/local/mysql-5.7.27-macos10.14-x86_64/share/charsets/ |\
++--------------------------+-----------------------------------------------------------+\
+\
+
+\f0 \cf0 \CocoaLigature1 \'c9\'cf\'c3\'e6\'ba\'ec\'cf\'df\'b1\'ea\'d7\'a2\'b5\'c4\'ca\'c7\'d0\'e8\'d2\'aa\'ce\'d2\'c3\'c7\'b9\'d8\'d7\'a2\'b5\'c4\'a1\'a3
+\f1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\fs24 \cf0 {{\NeXTGraphic 截屏2020-08-01 下午4.17.57.png \width17500 \height13000 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}�}
+\fs36 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+oracle@192 ~]$ locate libmysqlclient\
+/usr/lib64/mysql/libmysqlclient.so.18\
+/usr/lib64/mysql/libmysqlclient.so.18.0.0\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+}
